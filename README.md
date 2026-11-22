@@ -10,7 +10,23 @@ It uses Fish's free model (`s2.1-pro-free`), so no paid credit is needed.
 - `curl.exe` (ships with Windows 10 1803+)
 - A Fish Audio account and API key: <https://fish.audio/app/api-keys/>
 
-## Install
+## Install (one step)
+
+Open PowerShell and run:
+
+```powershell
+irm https://raw.githubusercontent.com/Robert151003/copilot-speak/main/install.ps1 | iex
+```
+
+It asks for your Fish Audio API key (get one at <https://fish.audio/app/api-keys/>), installs to `%USERPROFILE%\.copilot\speak`, registers the Copilot hook, turns speech on and plays a test line. Restart any open Copilot CLI session afterwards. Re-running it is safe, and `uninstall.ps1` removes everything.
+
+Prefer a clone? `git clone https://github.com/Robert151003/copilot-speak`, then run `.\install.ps1` inside it.
+
+If scripts are blocked, run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+
+The `.env` file is gitignored and locked to your user, so your key is never committed. A `FISH_API_KEY` environment variable takes priority over the file.
+
+### Manual install
 
 ```powershell
 git clone https://github.com/Robert151003/copilot-speak "$env:USERPROFILE\.copilot\speak"
@@ -19,9 +35,7 @@ cd "$env:USERPROFILE\.copilot\speak"
 .\toggle.ps1 on      # turn speech on
 ```
 
-If scripts are blocked, run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
-
-The `.env` file is gitignored, so your key is never committed. A `FISH_API_KEY` environment variable takes priority over the file.
+Then copy `hook-config.example.json` to `%USERPROFILE%\.copilot\hooks\speak.json` to speak every Copilot CLI reply.
 
 ## Use
 
