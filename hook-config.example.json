@@ -1,0 +1,13 @@
+{
+    "version":  1,
+    "hooks":  {
+                  "agentStop":  [
+                                    {
+                                        "powershell":  "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\Robert\\.copilot\\speak\\hook.ps1\"",
+                                        "bash":  "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\Robert\\.copilot\\speak\\hook.ps1\"",
+                                        "type":  "command",
+                                        "timeoutSec":  60
+                                    }
+                                ]
+              }
+}
